@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Fernando Hernandez Solis — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1A1A1B;
+      --accent: #0056B3;
+      --bg: #FFFFFF;
+      --surface: #F8F9FA;
+      --muted: #6B7280;
+      --rule: #E5E7EB;
+      --header-bg: #13151A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 10pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #D1D5DB;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 32px auto;
+      background: var(--bg);
+      box-shadow: 0 6px 48px rgba(0,0,0,0.22);
+    }
+
+    /* ── DARK HEADER ──────────────────────────────── */
+    .header {
+      background: var(--header-bg);
+      padding: 26px 34px 22px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      position: relative;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent) 0%, #3B82F6 55%, transparent 100%);
+    }
+
+    .header-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 6.5pt;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 7px;
+    }
+
+    .header-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 27pt;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.05;
+      letter-spacing: -0.4px;
+      margin-bottom: 7px;
+    }
+
+    .header-tagline {
+      font-size: 8.5pt;
+      color: #9CA3AF;
+      font-weight: 300;
+      margin-bottom: 13px;
+    }
+
+    .header-tagline span { color: #4B5563; margin: 0 5px; }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 16px;
+      font-size: 7.5pt;
+      color: #9CA3AF;
+    }
+
+    .contact-row a { color: #60A5FA; text-decoration: none; }
+    .contact-item { display: flex; align-items: center; gap: 4px; }
+
+    /* QR Box */
+    .qr-box {
+      width: 92px;
+      height: 92px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.03);
+      flex-shrink: 0;
+    }
+
+    .qr-placeholder { width: 66px; height: 66px; }
+    .qr-placeholder svg { width: 100%; height: 100%; }
+
+    .qr-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 5pt;
+      color: #6B7280;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      text-align: center;
+    }
+
+    /* ── TWO-COLUMN BODY ──────────────────────────── */
+    .body-wrap {
+      display: grid;
+      grid-template-columns: 1fr 228px;
+      align-items: start;
+    }
+
+    .main {
+      padding: 26px 26px 28px 34px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .sidebar {
+      padding: 26px 22px 28px 18px;
+    }
+
+    /* ── SECTION TITLES ───────────────────────────── */
+    .section-title, .sb-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 6.5pt;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid var(--accent);
+    }
+
+    section { margin-bottom: 20px; }
+    .sb-section { margin-bottom: 18px; }
+
+    /* ── SUMMARY ──────────────────────────────────── */
+    .summary-text {
+      font-size: 9pt;
+      color: #374151;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .summary-text strong { font-weight: 600; color: var(--ink); }
+
+    /* ── ENTRIES ──────────────────────────────────── */
+    .entry { margin-bottom: 15px; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 1px;
+    }
+
+    .entry-title { font-size: 10pt; font-weight: 600; color: var(--ink); }
+
+    .entry-org {
+      font-size: 8pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .entry-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 6.5pt;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    ul.bullets { list-style: none; padding: 0; }
+
+    ul.bullets li {
+      font-size: 8.5pt;
+      color: #374151;
+      padding-left: 13px;
+      position: relative;
+      margin-bottom: 3px;
+      line-height: 1.55;
+    }
+
+    ul.bullets li::before {
+      content: "·";
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 12pt;
+      line-height: 1;
+      top: -1px;
+    }
+
+    ul.bullets li strong { font-weight: 600; color: var(--ink); }
+
+    .hn { color: var(--ink); font-weight: 700; }
+
+    /* VALUE BOX */
+    .value-box {
+      background: var(--header-bg);
+      border-radius: 5px;
+      padding: 15px 17px;
+    }
+
+    .vb-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 6.5pt;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .vb-title::before { content: "▌ "; }
+
+    .value-box p {
+      font-size: 8.5pt;
+      color: #D1D5DB;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .value-box p strong { color: #fff; font-weight: 600; }
+
+    /* ── SIDEBAR ──────────────────────────────────── */
+
+    /* EDU */
+    .edu-entry { margin-bottom: 13px; }
+    .edu-title { font-size: 9pt; font-weight: 600; color: var(--ink); line-height: 1.25; margin-bottom: 1px; }
+    .edu-org { font-size: 7.5pt; color: var(--ink); font-weight: 700; margin-bottom: 4px; }
+    .edu-bullets { list-style: none; padding: 0; }
+    .edu-bullets li {
+      font-size: 7.5pt;
+      color: #4B5563;
+      padding-left: 11px;
+      position: relative;
+      margin-bottom: 2px;
+      line-height: 1.5;
+    }
+    .edu-bullets li::before {
+      content: "·";
+      position: absolute;
+      left: 1px;
+      color: var(--muted);
+      font-size: 12pt;
+      line-height: 0.9;
+    }
+
+    /* SKILLS */
+    .skill-group { margin-bottom: 9px; }
+    .skill-group-label {
+      font-size: 6.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 3px; }
+    .tag {
+      font-size: 7pt;
+      padding: 2px 7px;
+      border-radius: 3px;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+      color: var(--ink);
+    }
+    .tag.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* KEY HIGHLIGHTS */
+    .highlight-list { list-style: none; }
+    .highlight-list li {
+      font-size: 7.5pt;
+      color: #374151;
+      padding: 4px 0 4px 20px;
+      position: relative;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.4;
+    }
+    .highlight-list li:last-child { border-bottom: none; }
+    .highlight-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0; top: 5px;
+      width: 13px; height: 13px;
+      background: var(--accent);
+      color: white;
+      font-size: 7pt;
+      border-radius: 2px;
+      text-align: center;
+      line-height: 13px;
+      font-weight: 700;
+    }
+
+    /* LANGUAGES */
+    .lang-item { margin-bottom: 8px; }
+    .lang-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      margin-bottom: 3px;
+      color: var(--ink);
+    }
+    .lang-level { color: var(--muted); font-size: 7.5pt; }
+    .lang-bar {
+      height: 3px;
+      background: var(--rule);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- DARK HEADER -->
+  <header class="header">
+    <div>
+      <div class="header-eyebrow">Mechatronics Engineering · Leadership · Innovation</div>
+      <div class="header-name">Diego Fernando<br>Hernandez Solis</div>
+      <div class="header-tagline">
+        Mechatronics Engineering Student <span>·</span> Project Director <span>·</span> Social Entrepreneur
+      </div>
+      <div class="contact-row">
+        <span class="contact-item">📍 San Luis Potosí, MX</span>
+        <span class="contact-item">📱 4445014743</span>
+        <span class="contact-item">✉ A01614619&#64;tec.mx</span>
+        <span class="contact-item">🔗 <a href="https://www.linkedin.com/in/diego-fernando-hernández-solis-57219126a" target="_blank">LinkedIn</a></span>
+
+      </div>
+    </div>
+
+    <div class="qr-box">
+      <div class="qr-placeholder">
+        <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
+          <rect x="2" y="2" width="20" height="20" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+          <rect x="7" y="7" width="10" height="10" rx="1"/>
+          <rect x="50" y="2" width="20" height="20" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+          <rect x="55" y="7" width="10" height="10" rx="1"/>
+          <rect x="2" y="50" width="20" height="20" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+          <rect x="7" y="55" width="10" height="10" rx="1"/>
+          <rect x="26" y="2" width="4" height="4"/><rect x="32" y="2" width="4" height="4"/>
+          <rect x="38" y="2" width="4" height="4"/><rect x="44" y="2" width="4" height="4"/>
+          <rect x="26" y="8" width="4" height="4"/><rect x="38" y="8" width="4" height="4"/>
+          <rect x="44" y="8" width="4" height="4"/><rect x="26" y="14" width="4" height="4"/>
+          <rect x="32" y="14" width="4" height="4"/><rect x="44" y="14" width="4" height="4"/>
+          <rect x="2" y="26" width="4" height="4"/><rect x="8" y="26" width="4" height="4"/>
+          <rect x="14" y="26" width="4" height="4"/><rect x="26" y="26" width="4" height="4"/>
+          <rect x="32" y="26" width="4" height="4"/><rect x="38" y="26" width="4" height="4"/>
+          <rect x="50" y="26" width="4" height="4"/><rect x="62" y="26" width="4" height="4"/>
+          <rect x="2" y="32" width="4" height="4"/><rect x="14" y="32" width="4" height="4"/>
+          <rect x="26" y="32" width="4" height="4"/><rect x="44" y="32" width="4" height="4"/>
+          <rect x="56" y="32" width="4" height="4"/><rect x="62" y="32" width="4" height="4"/>
+          <rect x="8" y="38" width="4" height="4"/><rect x="20" y="38" width="4" height="4"/>
+          <rect x="32" y="38" width="4" height="4"/><rect x="44" y="38" width="4" height="4"/>
+          <rect x="56" y="38" width="4" height="4"/><rect x="26" y="44" width="4" height="4"/>
+          <rect x="38" y="44" width="4" height="4"/><rect x="50" y="44" width="4" height="4"/>
+          <rect x="62" y="44" width="4" height="4"/><rect x="26" y="50" width="4" height="4"/>
+          <rect x="32" y="50" width="4" height="4"/><rect x="44" y="50" width="4" height="4"/>
+          <rect x="56" y="50" width="4" height="4"/><rect x="26" y="56" width="4" height="4"/>
+          <rect x="38" y="56" width="4" height="4"/><rect x="50" y="56" width="4" height="4"/>
+          <rect x="62" y="56" width="4" height="4"/><rect x="26" y="62" width="4" height="4"/>
+          <rect x="44" y="62" width="4" height="4"/><rect x="56" y="62" width="4" height="4"/>
+        </svg>
+      </div>
+      <div class="qr-label">Portfolio / LinkedIn</div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="body-wrap">
+
+    <!-- MAIN COLUMN -->
+    <main class="main">
+
+      <section>
+        <div class="section-title">Professional Summary</div>
+        <p class="summary-text">
+          High-performance Mechatronics student and Project Director with <strong>5 years</strong> of experience in technical management and team leadership. Expert in optimizing workflows — reducing project delivery times by <strong>25%</strong> — and developing inclusive technology. Unlike generalist candidates, I focus on discipline-driven quality and scalability, moving projects from initial prototypes to <strong>national-level competition finals</strong>.
+        </p>
+      </section>
+
+      <section>
+        <div class="section-title">Professional Experience</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Project Director</div>
+            <span class="entry-date">Jul 2020 – Present</span>
+          </div>
+          <div class="entry-org">ADH Services</div>
+          <ul class="bullets">
+            <li><strong>Optimization:</strong> Reduced project delivery cycles from <span class="hn">8 → 6 months</span> by standardizing construction prototypes for corporate clients (3B, retail sectors).</li>
+            <li><strong>Leadership:</strong> Managing a team of <span class="hn">8</span>. Responsible for project oversight, technical training, and high-level corporate negotiations.</li>
+            <li><strong>Results:</strong> Shifted the business model from manual individual reviews to an efficient, data-driven prototype system.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Founder &amp; Lead</div>
+            <span class="entry-date">Dec 2024 – Present</span>
+          </div>
+          <div class="entry-org">LenguaTec — Assistive Technology</div>
+          <ul class="bullets">
+            <li><strong>Development:</strong> Leading end-to-end creation of a sign-language translation glove (Flex Sensors, SolidWorks).</li>
+            <li><strong>Impact:</strong> Regional — Hult Prize 2026. Scaling to <span class="hn">+1,000 users by 2027</span>.</li>
+            <li><strong>Strategy:</strong> Directly responsible for hardware integration and national-level fundraising.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">Projects — Problem Solving &amp; Impact</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">FRC Robotics</div>
+            <span class="entry-date">2022 – 2024</span>
+          </div>
+          <div class="entry-org">Vitronik Team 6170</div>
+          <ul class="bullets">
+            <li>Reorganized business area from <span class="hn">1 → 13 members</span>. Secured <span class="hn">4 new major sponsors</span>.</li>
+            <li>Increased team revenue by <span class="hn">2,000%</span>. Achieved <span class="hn">Top 6 / 42</span> ranking and back-to-back semifinals — first and second time in team history.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">MUN Leadership</div>
+            <span class="entry-date">Multiple iterations</span>
+          </div>
+          <div class="entry-org">Tecmun / Tecmimun — Finance Sub-Director &amp; Committee President</div>
+          <ul class="bullets">
+            <li>Implemented rigorous Excel-based budget tracking, ensuring <span class="hn">100% financial transparency</span>.</li>
+            <li>Elevated committee quality and diplomatic debate standards across multiple conference iterations.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- VALUE PROPOSITION -->
+      <section>
+        <div class="value-box">
+          <div class="vb-title">Value Proposition — EGS Global</div>
+          <p>
+            Most candidates apply with a list of participation certificates. I offer a <strong>track record of transformation</strong>. My differentiator is simple: I don't just join projects — I <strong>lead them to exceed their metrics</strong>. Whether reducing delivery time by <strong>2 months</strong> or scaling a robotics team's revenue by <strong>2,000%</strong>, I bring commitment and execution. I am already delivering my <strong>Social Mortgage</strong> through LenguaTec.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sb-section">
+        <div class="sb-title">Education</div>
+        <div class="edu-entry">
+          <div class="edu-title">B.S. Mechatronics Engineering</div>
+          <div class="edu-org">Tecnológico de Monterrey · 2024 – Present</div>
+          <ul class="edu-bullets">
+            <li>54+ hrs certified CAD &amp; Advanced Mechatronics</li>
+            <li>50% combined scholarship (Socioeconomic + Liderazgo Potosino)</li>
+            <li>1st Place — 4 consecutive engineering challenges (Catapult, Thermal, EM)</li>
+          </ul>
+        </div>
+        <div class="edu-entry">
+          <div class="edu-title">High School Diploma</div>
+          <div class="edu-org">Universidad Tecmilenio · Graduated 2024</div>
+          <ul class="edu-bullets">
+            <li>Final GPA: 91 / 100</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-title">Technical Skills</div>
+        <div class="skill-group">
+          <div class="skill-group-label">Engineering</div>
+          <div class="tags">
+            <span class="tag primary">SolidWorks</span>
+            <span class="tag primary">Arduino</span>
+            <span class="tag">Onshape</span>
+            <span class="tag">Flex Sensors</span>
+            <span class="tag">Arch. Rendering</span>
+            <span class="tag">Prototyping</span>
+          </div>
+        </div>
+        <div class="skill-group" style="margin-top:7px">
+          <div class="skill-group-label">Management</div>
+          <div class="tags">
+            <span class="tag primary">Agile PM</span>
+            <span class="tag primary">Financial Modeling</span>
+            <span class="tag">Excel (Intermediate)</span>
+            <span class="tag">Team Coordination</span>
+            <span class="tag">Corporate Negotiations</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-title">Key Highlights</div>
+        <ul class="highlight-list">
+          <li>Hult Prize — National</li>
+          <li>FRC Robotics — Top 6 / 42 teams</li>
+          <li>2,000% revenue growth — Vitronik 6170</li>
+          <li>4× 1st Place — Tec engineering challenges</li>
+          <li>25% faster delivery — ADH Services</li>
+        </ul>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-title">Languages</div>
+        <div class="lang-item">
+          <div class="lang-label-row">
+            <span>Spanish</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-label-row">
+            <span>English</span>
+            <span class="lang-level">B1</span>
+          </div>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:55%"></div></div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-label-row">
+            <s
